@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 7.1.3.4"
   spec.add_dependency "pagy", ">= 8.6"
   spec.add_dependency "zeitwerk", ">= 2.6"
+  spec.add_development_dependency "debug", ">= 1.9"
 end

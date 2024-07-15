@@ -10,13 +10,20 @@ module Gridy
         before_action :set_resource, only: %i[ show edit update destroy ]
 
 
-        define_method "#{controller_name.singularize}_params" do
-          params.require(controller_name.singularize).permit!
+        define_method "#{resource_name}_params" do
+          params.require(resource_name).permit!
+        end
+      end
+
+      class_methods do
+        def resource_name
+          controller_name.singularize
         end
       end
 
       def index
         gridy_collection(collection)
+        render "index"
       end
 
       def show
@@ -33,7 +40,7 @@ module Gridy
         self.resource = resource_class.new(resource_params)
 
         if resource.save
-          redirect_to resource, notice: "#{controller_name.singularize.titleize} was successfully created."
+          redirect_to resource, notice: "#{resource_name.titleize} was successfully created."
         else
           render :new, status: :unprocessable_entity
         end
@@ -41,7 +48,7 @@ module Gridy
 
       def update
         if resource.update(resource_params)
-          redirect_to resource, notice: "#{controller_name.singularize.titleize} was successfully updated."
+          redirect_to resource, notice: "#{resource_name.titleize} was successfully updated."
         else
           render :edit, status: :unprocessable_entity
         end
@@ -49,37 +56,7 @@ module Gridy
 
       def destroy
         resource.destroy!
-        redirect_to resource_index_url, notice: "#{controller_name.singularize.titleize} was successfully destroyed."
-      end
-
-      private
-
-      def resource_index_url
-        send "#{controller_name}_url"
-      end
-
-      def resource_class
-        controller_name.classify.constantize
-      end
-
-      def resource
-        instance_variable_get("@#{controller_name.singularize}")
-      end
-
-      def resource=(value)
-        instance_variable_set("@#{controller_name.singularize}", value)
-      end
-
-      def collection
-        resource_class.all
-      end
-
-      def set_resource
-        self.resource = resource_class.find(params[:id])
-      end
-
-      def resource_params
-        send "#{controller_name.singularize}_params"
+        redirect_to resource_index_url, notice: "#{resource_name.titleize} was successfully destroyed."
       end
 
     end

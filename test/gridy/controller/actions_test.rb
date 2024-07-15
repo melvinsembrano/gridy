@@ -1,9 +1,17 @@
 require "test_helper"
 
+class AdminAccountsController < ApplicationController
+  include Gridy::Controller::Actions
+
+  def self.resource_name
+    "account"
+  end
+end
+
 class Gridy::Controller::ActionsTest < ActiveSupport::TestCase
 
   def setup
-    @controller = AccountsController.new
+    @controller = AdminAccountsController.new
   end
 
   test "should define gridy_collection" do

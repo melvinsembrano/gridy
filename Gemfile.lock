@@ -90,6 +90,9 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
+    debug (1.9.2)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.0)
     globalid (1.2.1)
@@ -215,6 +218,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  debug (>= 1.9)
   gridy!
   puma
   sqlite3 (~> 1.4)
