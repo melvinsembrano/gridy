@@ -10,6 +10,12 @@ module Gridy
 
     end
 
+    class_methods do
+      def resource_name
+        controller_name.singularize
+      end
+    end
+
     def gridy_collection(collection, options = {})
       @pagy, records = pagy(collection, items: options[:items] || 20)
       instance_variable_set("@#{controller_name}", records)

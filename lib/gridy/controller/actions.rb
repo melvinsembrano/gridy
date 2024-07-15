@@ -15,12 +15,6 @@ module Gridy
         end
       end
 
-      class_methods do
-        def resource_name
-          controller_name.singularize
-        end
-      end
-
       def index
         gridy_collection(collection)
         render "index"
