@@ -9,7 +9,7 @@ module Gridy
     end
 
     def gridy_collection(collection, options = {})
-      @pagy, records = pagy(collection, items: options[:items] || 10)
+      @pagy, records = pagy(collection, items: options[:items] || 20)
       instance_variable_set("@#{controller_name}", records)
     end
 
