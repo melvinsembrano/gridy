@@ -19,8 +19,7 @@ class Gridy::Controller::ActionsIntegrationTest < ActionDispatch::IntegrationTes
     assert_difference('Account.count') do
       post accounts_url, params: {
         account: {
-          email: "newuser@test.com", first_name: "New", last_name: "User",
-          birthday: "2020-01-01", company: "New Company", position: "New Position"
+          email: "newuser@test.com", first_name: "New", last_name: "User"
         }
       }
     end

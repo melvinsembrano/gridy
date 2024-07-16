@@ -2,10 +2,8 @@ require "test_helper"
 
 class AdminAccountsController < ApplicationController
   include Gridy::Controller::Actions
+  gridy_resource Account
 
-  def self.resource_name
-    "account"
-  end
 end
 
 class Gridy::Controller::ActionsTest < ActiveSupport::TestCase
