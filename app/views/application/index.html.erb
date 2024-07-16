@@ -1,28 +1,43 @@
-<div>
-  <div>
+<div class="gridy">
+  <div class="table-container">
     <div class="relative">
-      <table>
-        <thead>
-          <tr>
-            <% resource_attributes.each do |attr| %>
-              <th><span> <%= attr %> </span></th>
-            <% end %>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @records.each do |record| %>
+      <%= turbo_frame_tag resource_name.underscore.pluralize, "data-turbo-action" => :advance do %>
+        <table>
+          <thead>
             <tr>
               <% resource_attributes.each do |attr| %>
-                <td><%= record.send(attr) %></td>
+                <th><span> <%= attr.to_s.humanize %> </span></th>
               <% end %>
-              <th>
-                <span><%= link_to "Show", record %></span>
-                <span><%= link_to "Edit", [:edit, record] %></span>
-              </th>
+              <th></th>
             </tr>
-          <% end %>
-        </tbody>
+          </thead>
+          <tbody>
+            <% @records.each do |record| %>
+              <tr>
+                <% resource_attributes.each_with_index do |attr, idx| %>
+                  <td>
+                    <% if idx.zero? %>
+                      <%= link_to record.send(attr), record %>
+                    <% else %>
+                      <%= record.send(attr) %>
+                    <% end %>
+                  </td>
+                <% end %>
+                <th>
+                  <span><%= link_to "Show", record %></span>
+                  <span><%= link_to "Edit", [:edit, record] %></span>
+                </th>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="<%= resource_attributes.count + 1 %>">
+                <%== pagy_nav(@pagy) %>
+              </td>
+            </tr>
+          </tfoot>
+        <% end %>
       </table>
     </div>
   </div>

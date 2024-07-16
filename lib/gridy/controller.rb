@@ -7,7 +7,7 @@ module Gridy
     included do
       include Pagy::Backend
 
-      helper_method :resource_attributes_types, :resource_attributes
+      helper_method :resource_attributes_types, :resource_attributes, :resource_name
 
     end
 
@@ -47,6 +47,7 @@ module Gridy
     def resource_attributes
       self.class.resource_attributes
     end
+
     def resource_name
       self.class.resource.name
     end

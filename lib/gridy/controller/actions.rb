@@ -12,7 +12,7 @@ module Gridy
       end
 
       def index
-        gridy_collection(collection)
+        gridy_collection(collection, items: params[:items] || 20)
         render "index"
       end
 
@@ -63,7 +63,7 @@ module Gridy
         resource_named_params = "#{resource_name}_params"
         return send(resource_named_params) if respond_to?(resource_named_params)
 
-        params.require(resource_name.underscore.to_sym).permit!
+        params.require(resource_name.underscore.to_sym).permit(*resource_attributes)
       end
 
     end
