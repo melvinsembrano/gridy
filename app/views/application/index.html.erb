@@ -4,9 +4,25 @@
       <table>
         <thead>
           <tr>
-
+            <% resource_attributes.each do |attr| %>
+              <th><span> <%= attr %> </span></th>
+            <% end %>
+            <th></th>
           </tr>
         </thead>
+        <tbody>
+          <% @records.each do |record| %>
+            <tr>
+              <% resource_attributes.each do |attr| %>
+                <td><%= record.send(attr) %></td>
+              <% end %>
+              <th>
+                <span><%= link_to "Show", record %></span>
+                <span><%= link_to "Edit", [:edit, record] %></span>
+              </th>
+            </tr>
+          <% end %>
+        </tbody>
       </table>
     </div>
   </div>

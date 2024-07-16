@@ -2,7 +2,8 @@ require "test_helper"
 
 class AdminAccountsController < ApplicationController
   include Gridy::Controller::Actions
-  gridy_resource Account
+
+  gridy model: Account
 
 end
 
