@@ -1,0 +1,8 @@
+<h1>New <%= resource_name %></h1>
+
+<%= render "form", resource: @resource %>
+<br>
+
+<div>
+  <%= link_to "Back to #{ resource_name.pluralize }", resource_name.underscore.pluralize.to_sym %>
+</div>

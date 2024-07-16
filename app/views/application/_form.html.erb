@@ -1,0 +1,24 @@
+<%= form_with(model: resource) do |form| %>
+  <% if resource.errors.any? %>
+    <div style="color: red">
+      <h2>
+        <%= pluralize(resource.errors.count, "error") %> prohibited this <%= resource_name %> from being saved:
+      </h2>
+      <ul>
+        <% resource.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% resource_attributes.each do |attr| %>
+    <div>
+      <%= form.label attr, style: "display: block" %>
+      <%= form.text_field attr %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -61,7 +61,8 @@ module Gridy
     end
 
     def resource_instance=(value)
-      instance_variable_set("@#{resource_name.underscore}", value)
+      @resource = value
+      instance_variable_set("@#{resource_name.underscore}", @resource)
     end
 
   end

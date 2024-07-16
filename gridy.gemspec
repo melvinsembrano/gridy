@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency "rails", ">= 7.1.3.4"
+  spec.add_dependency "turbo-rails", ">= 1.5"
   spec.add_dependency "pagy", ">= 8.6"
   spec.add_dependency "zeitwerk", ">= 2.6"
   spec.add_development_dependency "debug", ">= 1.9"

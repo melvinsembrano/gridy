@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="<%= dom_id(@resource) %>">
+  <% resource_attributes.each do |attr| %>
+    <p>
+      <strong><%= attr.to_s.humanize %>:</strong>
+      <%= @resource.send(attr) %>
+    </p>
+  <% end %>
+</div>
+<div>
+  <%= link_to "Edit this #{ resource_name}", [:edit, @resource] %>
+  <%= link_to "Back to #{ resource_name.pluralize }", resource_name.underscore.pluralize.to_sym %>
+
+  <%= button_to "Destroy this #{resource_name}", @resource, method: :delete %>
+</div>
