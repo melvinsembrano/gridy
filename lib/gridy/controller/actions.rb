@@ -20,14 +20,14 @@ module Gridy
       end
 
       def new
-        self.resource_instance = self.class.resource.new
+        self.resource_instance = resource_class.new
       end
 
       def edit
       end
 
       def create
-        self.resource_instance = self.class.resource.new(resource_params)
+        self.resource_instance = resource_class.new(resource_params)
 
         if resource_instance.save
           redirect_to resource_instance, notice: "#{resource_name.titleize} was successfully created."
@@ -51,12 +51,16 @@ module Gridy
 
       private
 
+      def resource_class
+        self.class.resource
+      end
+
       def collection
-        self.class.resource.all
+        resource_class.all
       end
 
       def set_resource
-        self.resource_instance = self.class.resource.find(params[:id])
+        self.resource_instance = resource_class.find(params[:id])
       end
 
       def resource_params
