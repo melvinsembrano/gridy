@@ -26,6 +26,7 @@
       td {
         padding: var(--size-1) var(--size-3);
         white-space: nowrap;
+        text-align: left;
       }
     }
   }

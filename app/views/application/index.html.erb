@@ -17,15 +17,15 @@
                 <% resource_attributes.each_with_index do |attr, idx| %>
                   <td>
                     <% if idx.zero? %>
-                      <%= link_to record.send(attr), record %>
+                      <%= link_to record.send(attr), record, "data-turbo" => false %>
                     <% else %>
                       <%= record.send(attr) %>
                     <% end %>
                   </td>
                 <% end %>
                 <th>
-                  <span><%= link_to "Show", record %></span>
-                  <span><%= link_to "Edit", [:edit, record] %></span>
+                  <span><%= link_to "Show", record, "data-turbo" => false %></span>
+                  <span><%= link_to "Edit", [:edit, record], "data-turbo" => false %></span>
                 </th>
               </tr>
             <% end %>
