@@ -7,7 +7,9 @@
           <thead>
             <tr>
               <% resource_attributes.each do |attr| %>
-                <th><span> <%= attr.to_s.humanize %> </span></th>
+                <th>
+                  <%= gridy_table_header(attr, sortable: sortable?) %>
+                </th>
               <% end %>
               <th></th>
             </tr>

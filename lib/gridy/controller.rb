@@ -1,4 +1,5 @@
 require "pagy"
+require "ransack"
 
 module Gridy
   module Controller
@@ -7,7 +8,7 @@ module Gridy
     included do
       include Pagy::Backend
 
-      helper_method :resource_attributes_types, :resource_attributes, :resource_name, :searchable?
+      helper_method :resource_attributes_types, :resource_attributes, :resource_name, :searchable?, :sortable?
 
     end
 
@@ -44,14 +45,28 @@ module Gridy
     end
 
     def gridy_collection(collection, options = {})
-      @pagy, @records = pagy(collection, items: options[:items] || 20)
+      @ransack = gridy_query(collection, options)
+      @pagy, @records = pagy(@ransack.result(distinct: true), items: options[:items] || 20)
       instance_variable_set("@#{resource_name.pluralize.underscore}", @records)
+    end
+
+    def gridy_query(collection, options = {})
+      query = {}
+
+      query[self.class.resource.searchable_key] = options[:q] if searchable?
+      query[:s] = options[:sort] if sortable?
+
+      collection.ransack(query)
     end
 
     private
 
     def searchable?
       self.class.searchable?
+    end
+
+    def sortable?
+      self.class.sortable?
     end
 
     def resource_attributes_types
