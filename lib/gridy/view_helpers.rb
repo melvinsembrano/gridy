@@ -24,6 +24,5 @@ module Gridy
         content_tag(:span, "#{title || field.to_s.titleize} #{icon}".html_safe)
       end
     end
-
   end
 end

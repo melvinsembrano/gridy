@@ -3,8 +3,8 @@ require_relative "lib/gridy/version"
 Gem::Specification.new do |spec|
   spec.name        = "gridy"
   spec.version     = Gridy::VERSION
-  spec.authors     = ["Melvin Sembrano"]
-  spec.email       = ["melv@hey.com"]
+  spec.authors     = [ "Melvin Sembrano" ]
+  spec.email       = [ "melv@hey.com" ]
   spec.homepage    = "http://github.com/melvinsembrano/gridy"
   spec.summary     = "Ruby on Rails grid helper"
   spec.description = "Ruby on Rails grid made easy"

@@ -8,7 +8,6 @@ module Gridy
       included do
         include Gridy::Controller
         before_action :set_resource, only: %i[ show edit update destroy ]
-
       end
 
       def index
@@ -69,7 +68,6 @@ module Gridy
 
         params.require(resource_name.underscore.to_sym).permit(*resource_attributes)
       end
-
     end
   end
 end

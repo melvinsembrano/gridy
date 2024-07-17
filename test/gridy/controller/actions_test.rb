@@ -4,11 +4,9 @@ class AdminAccountsController < ApplicationController
   include Gridy::Controller::Actions
 
   gridy model: Account
-
 end
 
 class Gridy::Controller::ActionsTest < ActiveSupport::TestCase
-
   def setup
     @controller = AdminAccountsController.new
   end
@@ -46,5 +44,4 @@ class Gridy::Controller::ActionsTest < ActiveSupport::TestCase
   test "should define destroy" do
     assert_respond_to @controller, :destroy
   end
-
 end

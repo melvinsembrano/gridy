@@ -9,11 +9,9 @@ module Gridy
       include Pagy::Backend
 
       helper_method :resource_attributes_types, :resource_attributes, :resource_name, :searchable?, :sortable?
-
     end
 
     class_methods do
-
       def gridy(options)
         options.symbolize_keys!
         @resource = options[:model] if options[:model].present?
@@ -41,7 +39,6 @@ module Gridy
       def sortable?
         @sortable
       end
-
     end
 
     def gridy_collection(collection, options = {})
@@ -93,6 +90,5 @@ module Gridy
       @resource = value
       instance_variable_set("@#{resource_name.underscore}", @resource)
     end
-
   end
 end

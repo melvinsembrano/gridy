@@ -16,7 +16,7 @@ class Gridy::Controller::ActionsIntegrationTest < ActionDispatch::IntegrationTes
   end
 
   test "should create account" do
-    assert_difference('Account.count') do
+    assert_difference("Account.count") do
       post accounts_url, params: {
         account: {
           email: "newuser@test.com", first_name: "New", last_name: "User"
@@ -43,11 +43,10 @@ class Gridy::Controller::ActionsIntegrationTest < ActionDispatch::IntegrationTes
   end
 
   test "should destroy account" do
-    assert_difference('Account.count', -1) do
+    assert_difference("Account.count", -1) do
       delete account_url(@account)
     end
 
     assert_redirected_to accounts_url
   end
-
 end

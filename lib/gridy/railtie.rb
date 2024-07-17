@@ -1,6 +1,5 @@
 module Gridy
   class Railtie < ::Rails::Engine
-
     # initializer "gridy.add_view_paths" do
     #   views = File.expand_path("../../app/views", __dir__)
     #   ActiveSupport.on_load(:action_controller) { prepend_view_path(views) }
@@ -19,6 +18,5 @@ module Gridy
         include Gridy::ViewHelpers
       end
     end
-
   end
 end

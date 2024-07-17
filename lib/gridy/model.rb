@@ -5,7 +5,6 @@ module Gridy
     extend ActiveSupport::Concern
 
     class_methods do
-
       def searchable_attributes
         column_names.select { |field| attributes_builder.types[field.to_s].type.eql?(:string) }
       end
@@ -29,7 +28,6 @@ module Gridy
       def ransackable_associations(auth_object = nil)
         []
       end
-
     end
   end
 end
