@@ -1,11 +1,13 @@
 module Gridy
   class Railtie < ::Rails::Engine
-    # initializer "gridy.add_view_paths" do
-    #   views = File.expand_path("../../app/views", __dir__)
-    #   ActiveSupport.on_load(:action_controller) { prepend_view_path(views) }
-    # end
 
-    PRECOMPILE_ASSETS = %w[gridy.css].freeze
+    PRECOMPILE_ASSETS = [
+      "gridy.css",
+      "gridy/open-props.css",
+      "gridy/open-props/normalize.css",
+      "gridy/open-props/buttons.css"
+    ].freeze
+
     initializer "gridy.assets" do
       if Rails.application.config.respond_to?(:assets)
         Rails.application.config.assets.precompile += PRECOMPILE_ASSETS

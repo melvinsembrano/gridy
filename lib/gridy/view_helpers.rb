@@ -3,6 +3,14 @@ module Gridy
     include Turbo::FramesHelper
     include Pagy::Frontend
 
+    def gridy_search_url
+      uri = URI(request.url)
+      params = Rack::Utils.parse_query(uri.query)
+      params.delete("page")
+      uri.query = params.to_query
+      uri.to_s
+    end
+
     def gridy_table_header(field, title = nil, sortable: false)
       unless sortable
         return content_tag(:th, title || field.to_s.titleize)
