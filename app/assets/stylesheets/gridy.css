@@ -5,6 +5,22 @@
 .gridy {
   font-size: 14px;
 
+  .search-form-container {
+    padding: var(--size-2);
+    margin-bottom: var(--size-2);
+
+    form {
+      width: 100%;
+    }
+
+    input[type="search"] {
+      flex-grow: 1;
+      padding: var(--size-1) var(--size-2);
+      border-radius: var(--radius-2);
+      border: 1px solid var(--border-2);
+    }
+  }
+
   .table-container {
     max-width: 100%;
     /* overflow-x: auto; */
@@ -37,6 +53,18 @@
 
   .sticky {
     position: sticky;
+  }
+
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-1);
+  }
+
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-1);
   }
 
   .pagy {
