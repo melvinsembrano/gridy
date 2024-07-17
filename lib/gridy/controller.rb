@@ -7,7 +7,7 @@ module Gridy
     included do
       include Pagy::Backend
 
-      helper_method :resource_attributes_types, :resource_attributes, :resource_name
+      helper_method :resource_attributes_types, :resource_attributes, :resource_name, :searchable?
 
     end
 
@@ -17,6 +17,8 @@ module Gridy
         options.symbolize_keys!
         @resource = options[:model] if options[:model].present?
         @resource_attributes = options[:attributes] if options[:attributes].present?
+        @searchable = options[:searchable].presence || false
+        @sortable = options[:sortable].presence || true
       end
 
       def resource
@@ -31,6 +33,14 @@ module Gridy
         @resource_attributes.presence || resource_attributes_types.keys
       end
 
+      def searchable?
+        @searchable
+      end
+
+      def sortable?
+        @sortable
+      end
+
     end
 
     def gridy_collection(collection, options = {})
@@ -39,6 +49,10 @@ module Gridy
     end
 
     private
+
+    def searchable?
+      self.class.searchable?
+    end
 
     def resource_attributes_types
       self.class.resource_attributes_types

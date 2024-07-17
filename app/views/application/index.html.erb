@@ -1,4 +1,5 @@
 <div class="gridy">
+  searchable: <%= searchable? %>
   <div class="table-container">
     <div class="relative">
       <%= turbo_frame_tag resource_name.underscore.pluralize, "data-turbo-action" => :advance do %>
@@ -23,10 +24,10 @@
                     <% end %>
                   </td>
                 <% end %>
-                <th>
+                <td>
                   <span><%= link_to "Show", record, "data-turbo" => false %></span>
                   <span><%= link_to "Edit", [:edit, record], "data-turbo" => false %></span>
-                </th>
+                </td>
               </tr>
             <% end %>
           </tbody>

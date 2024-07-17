@@ -12,7 +12,7 @@ module Gridy
       end
 
       def index
-        gridy_collection(collection, items: params[:items] || 20)
+        gridy_collection(collection, params)
         render "index"
       end
 
