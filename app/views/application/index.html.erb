@@ -1,8 +1,11 @@
 <div class="gridy">
-  searchable: <%= searchable? %>
+  <%= turbo_frame_tag resource_name.underscore.pluralize, "data-turbo-action" => :advance do %>
+  <% if searchable? %>
+    <%= render "search_form"  %>
+  <% end %>
   <div class="table-container">
     <div class="relative">
-      <%= turbo_frame_tag resource_name.underscore.pluralize, "data-turbo-action" => :advance do %>
+
         <table>
           <thead>
             <tr>
@@ -40,8 +43,9 @@
               </td>
             </tr>
           </tfoot>
-        <% end %>
+
       </table>
     </div>
   </div>
+  <% end %>
 </div>

@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "turbo-rails", ">= 1.5"
   spec.add_dependency "zeitwerk", ">= 2.6"
   spec.add_development_dependency "debug", ">= 1.9"
+  spec.add_development_dependency "rubocop-rails-omakase", ">= 1.0"
 end
