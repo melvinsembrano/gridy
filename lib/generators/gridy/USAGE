@@ -1,0 +1,13 @@
+Description:
+    This will generate a gridy scaffold for the given model.
+
+Example:
+    bin/rails generate gridy Book title:string author:string
+
+    This will create:
+        app/models/book.rb
+        app/controllers/books_controller.rb
+        db/migrate/20150101000000_create_books.rb
+
+    And add the following to the routes file:
+        resources :books
