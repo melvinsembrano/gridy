@@ -1,3 +1,6 @@
+require "pagy"
+require "turbo-rails"
+
 module Gridy
   module ViewHelpers
     include Turbo::FramesHelper
