@@ -16,7 +16,7 @@ module Gridy
 
     def gridy_table_header(field, title = nil, sortable: false)
       unless sortable
-        return content_tag(:th, title || field.to_s.titleize)
+        return title || field.to_s.titleize
       end
 
       uri = URI(request.url)
