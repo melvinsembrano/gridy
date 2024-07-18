@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require_relative "../lib/gridy/version"
+
+puts "Creating release #{Gridy::VERSION}"
+system("gh release create #{Gridy::VERSION} --generate-notes")
+puts "Release created..."
