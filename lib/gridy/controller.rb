@@ -12,7 +12,7 @@ module Gridy
     end
 
     class_methods do
-      def gridy(options)
+      def gridy(options = {})
         options.symbolize_keys!
         @resource = options[:model] if options[:model].present?
         @resource_attributes = options[:attributes] if options[:attributes].present?

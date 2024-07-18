@@ -7,6 +7,7 @@ module Gridy
 
       included do
         include Gridy::Controller
+        before_action :add_views
         before_action :set_resource, only: %i[ show edit update destroy ]
       end
 
@@ -49,6 +50,10 @@ module Gridy
       end
 
       private
+
+      def add_views
+        prepend_view_path File.expand_path("../../../app/views/gridy", __dir__)
+      end
 
       def resource_class
         self.class.resource
