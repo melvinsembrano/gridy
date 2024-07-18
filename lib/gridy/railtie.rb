@@ -1,6 +1,5 @@
 module Gridy
   class Railtie < ::Rails::Engine
-
     PRECOMPILE_ASSETS = [
       "gridy.css",
       "gridy/open-props.css",
