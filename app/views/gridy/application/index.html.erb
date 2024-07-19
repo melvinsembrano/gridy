@@ -22,9 +22,9 @@
               <% resource_attributes.each_with_index do |attr, idx| %>
                 <td>
                   <% if idx.zero? %>
-                    <%= link_to record.send(attr), record, "data-turbo" => false %>
+                    <%= link_to gridy_value(record.send(attr), type: resource_attributes_types[attr.to_s]), record, "data-turbo" => false %>
                   <% else %>
-                    <%= record.send(attr) %>
+                    <%= gridy_value(record.send(attr), type: resource_attributes_types[attr.to_s]) %>
                   <% end %>
                 </td>
               <% end %>

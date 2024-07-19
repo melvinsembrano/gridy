@@ -14,6 +14,15 @@ module Gridy
       uri.to_s
     end
 
+    def gridy_value(value, type: nil)
+      case type.type
+      when :date, :datetime
+        I18n.l(value, format: :default, scope: "gridy")
+      else
+        value
+      end
+    end
+
     def gridy_table_header(field, title = nil, sortable: false)
       unless sortable
         return title || field.to_s.titleize

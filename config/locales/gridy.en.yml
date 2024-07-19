@@ -1,0 +1,12 @@
+en:
+  gridy:
+    date:
+      formats:
+        default: "%d %b %Y"
+        short: "%b %d"
+        long: "%d %B %Y"
+    time:
+      formats:
+        default: "%r %d-%b-%Y"
+        short: "%r"
+        long: "%r %d-%b-%Y"

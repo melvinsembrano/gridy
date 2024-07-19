@@ -51,7 +51,9 @@ module Gridy
       query = {}
 
       query[self.class.resource.searchable_key] = options[:q] if searchable?
-      query[:s] = options[:sort] if sortable?
+      if sortable?
+        query[:s] = options[:sort] || "#{ self.class.resource.sortable_attributes.first } asc"
+      end
 
       collection.ransack(query)
     end
