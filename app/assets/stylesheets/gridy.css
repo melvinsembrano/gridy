@@ -1,13 +1,31 @@
 @import "./gridy/open-props.css";
 @import "./gridy/open-props/normalize.css";
-@import "./gridy/open-props/buttons.css";
+/* @import "./gridy/open-props/buttons.css"; */
 
 .gridy {
   font-size: 14px;
+  padding: var(--size-3);
+
+  .header {
+    padding: var(--size-2) 0;
+    /* box-shadow: var(--shadow-3); */
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--size-2);
+    margin-top: var(--size-3);
+    margin-bottom: var(--size-3);
+    align-items: center;
+
+    .title {
+      font-size: var(--font-size-2);
+      font-weight: var(--font-weight-5);
+    }
+  }
 
   .search-form-container {
-    padding: var(--size-2);
-    margin-bottom: var(--size-2);
+    /* padding: var(--size-2); */
+    /* margin-bottom: var(--size-2); */
 
     form {
       width: 100%;
@@ -17,7 +35,7 @@
       flex-grow: 1;
       padding: var(--size-1) var(--size-2);
       border-radius: var(--radius-2);
-      border: 1px solid var(--border-2);
+      border: 1px solid var(--gray-3);
     }
   }
 
@@ -35,6 +53,16 @@
 
         :where(tr:first-child th:first-child) {
           border-top-left-radius: var(--radius-2);
+        }
+      }
+
+      tfoot {
+        :where(tr:last-child :is(th, td):first-of-type) {
+          border-end-start-radius: var(---radius-2);
+        }
+
+        :where(tr:last-child :is(th, td):last-of-type) {
+          border-end-end-radius: var(--radius-2);
         }
       }
 
@@ -58,13 +86,13 @@
   .flex-row {
     display: flex;
     flex-direction: row;
-    gap: var(--size-1);
+    gap: var(--size-2);
   }
 
   .flex-col {
     display: flex;
     flex-direction: column;
-    gap: var(--size-1);
+    gap: var(--size-2);
   }
 
   .pagy {
@@ -75,32 +103,43 @@
     color: var(--text-2);
     margin: var(--size-1) 0;
   }
+
   .pagy > :not([hidden]) ~ :not([hidden]) {
     --space-reverse: 0;
     margin-right: calc(0.25rem * var(--space-reverse));
     margin-left: calc(0.25rem * calc(1 - var(--space-reverse)));
   }
+
   .pagy a:not(.gap) {
     display: block;
     text-decoration: none;
     border-radius: 0.25rem;
-    background: var(--surface-4);
+    border: 1px solid var(--surface-4);
+    background: var(--surface-3);
     padding: 0.25rem 0.75rem;
     color: inherit;
   }
+
   .pagy a:not(.gap):hover {
-    background-color: var(--surface-3);
+    background-color: var(--surface-1);
   }
+
   .pagy a:not(.gap):not([href]) {
     /* disabled links */
     cursor: default;
     background-color: var(--surface-2);
     color: var(--text-2);
   }
+
   .pagy a:not(.gap).current {
-    background: var(--surface-3);
+    background: var(--surface-0);
     color: var(--text-2);
   }
+
+  .pagy a.gap {
+    padding: 0 0.8rem;
+  }
+
   .pagy label {
     white-space: nowrap;
     display: inline-block;
@@ -108,6 +147,7 @@
     background: var(--surface-2);
     padding: 0.125rem 0.75rem;
   }
+
   .pagy label input {
     line-height: 1.5rem;
     border-radius: 0.375rem;

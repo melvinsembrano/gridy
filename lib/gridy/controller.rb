@@ -43,7 +43,8 @@ module Gridy
 
     def gridy_collection(collection, options = {})
       @ransack = gridy_query(collection, options)
-      @pagy, @records = pagy(@ransack.result(distinct: true), items: options[:items] || 20)
+
+      @pagy, @records = pagy(@ransack.result(distinct: true), limit: options[:limit].presence || 20)
       instance_variable_set("@#{resource_name.pluralize.underscore}", @records)
     end
 

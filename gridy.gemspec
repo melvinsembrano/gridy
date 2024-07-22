@@ -22,11 +22,11 @@ Gem::Specification.new do |spec|
     Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]
   end
 
-  spec.add_dependency "pagy", ">= 8.6"
-  spec.add_dependency "rails", ">= 7.1.3.4"
-  spec.add_dependency "ransack", ">= 4.2"
-  spec.add_dependency "turbo-rails", ">= 1.5"
-  spec.add_dependency "zeitwerk", ">= 2.6"
+  spec.add_dependency "pagy", "~> 9.0"
+  spec.add_dependency "rails", ">= 7.1"
+  spec.add_dependency "ransack", "~> 4.2"
+  spec.add_dependency "turbo-rails", "~> 2.0"
+  spec.add_dependency "zeitwerk", "~> 2.6"
   spec.add_development_dependency "debug", ">= 1.9"
   spec.add_development_dependency "rubocop-rails-omakase", ">= 1.0"
 end
